@@ -36,6 +36,7 @@ static void setupOTA() {
 
 void setup() {
     M5.begin();
+    Serial.begin(115200);
 
     M5.Display.setTextColor(WHITE);
     M5.Display.setTextDatum(middle_center);
@@ -51,8 +52,10 @@ void setup() {
 
     setupOTA();
 
+    String ip = WiFi.localIP().toString();
+    Serial.println("IP: " + ip);
     M5.Display.clear();
-    M5.Display.drawString("hello Android", M5.Display.width() / 2, M5.Display.height() / 2);
+    M5.Display.drawString(ip, M5.Display.width() / 2, M5.Display.height() / 2);
 }
 
 void loop() {
