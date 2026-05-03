@@ -52,13 +52,10 @@ void setup() {
 
     setupOTA();
 
-    Serial.println("IP: " + WiFi.localIP().toString());
-
+    String ip = WiFi.localIP().toString();
+    Serial.println("IP: " + ip);
     M5.Display.clear();
-    M5.Display.setTextColor(TFT_GREEN);
-    M5.Display.drawString("Android OTA", M5.Display.width() / 2, M5.Display.height() / 3);
-    M5.Display.setTextColor(WHITE);
-    M5.Display.drawString(WiFi.localIP().toString(), M5.Display.width() / 2, M5.Display.height() * 2 / 3);
+    M5.Display.drawString(ip, M5.Display.width() / 2, M5.Display.height() / 2);
 }
 
 void loop() {
